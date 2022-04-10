@@ -1,7 +1,7 @@
 {
   "name": "readme-generator",
   "version": "1.0.0",
-  "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/chardmuffin/readme-generator.git"
   },
-  "author": "",
+  "author": "Richard Huffman",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chardmuffin/readme-generator/issues"
   },
-  "homepage": "https://github.com/chardmuffin/readme-generator#readme"
+  "homepage": "https://github.com/chardmuffin/readme-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.2"
+  }
 }

@@ -24,7 +24,9 @@ This program makes it easy to generate a README markdown file in proper format w
 3. Answer the prompts in the terminal window.
 4. Your generated README.md file will appear in the "generated" folder inside your directory.
 
+Watch a brief video demonstrating usage:
 
+[![Watch the video](./src/img/thumbnail.PNG)](https://drive.google.com/file/d/1HnTRWu_vlVyA_FlmjthET_7LaP6LzG6m/view)
 
 ## License
 
@@ -38,6 +40,6 @@ Professional readme template based on [https://coding-boot-camp.github.io/full-s
 
 ## Questions
 
-I am on GitHub at [https://github.com/chardmuffin](https://github.com/chardmuffin)
+I am on GitHub: [https://github.com/chardmuffin](https://github.com/chardmuffin)
 
 I can also be reached by email at [richardhuffman96@gmail.com](mailto:richardhuffman96@gmail.com)

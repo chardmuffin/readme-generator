@@ -124,7 +124,7 @@ ${data.tests}
 
 ## Questions
 
-I am on GitHub at [https://github.com/${data.github}](https://github.com/${data.github})
+I am on GitHub: [https://github.com/${data.github}](https://github.com/${data.github})
 
 I can also be reached by email at [${data.email}](mailto:${data.email})`;
 

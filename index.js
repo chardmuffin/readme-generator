@@ -20,7 +20,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Provide a short description explaining the what, why, and how of your project.',
+        message: 'Provide a short description of your project.',
     },
     {
         type: 'input',
@@ -36,7 +36,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Please select a license',
-        choices: ['MIT', 'ISC', 'Apache', 'GNU GPLv3', 'BSD', 'None']
+        choices: ['MIT', 'ISC', 'Apache License 2.0', 'GNU GPLv3', 'BSD', 'None']
     },
     {
         type: 'input',
@@ -62,11 +62,34 @@ const questions = [
 ];
 
 // this function writes the README file
+// badge links created with reference https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
+// professional readme template based on https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 function writeToFile(fileName, data) {
 
-    //TODO put data in fileContent in format;
-    console.log(data);
-    const fileContent = `# ${data.title}
+    //build license string
+    switch(data.license) {
+        case 'MIT':
+            data.license = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+            break;
+        case 'ISC':
+            data.license = '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)';
+            break;
+        case 'Apache License 2.0':
+            data.license = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+            break;
+        case 'GNU GPLv3':
+            data.license = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
+            break;
+        case 'BSD':
+            data.license = '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
+            break;
+        default:
+            break;
+    }
+
+    //put data in fileContent in format;
+    const fileContent =
+`# ${data.title}
 ## Description
 
 ${data.description}
@@ -105,8 +128,7 @@ ${data.tests}
 I am on GitHub at [https://github.com/${data.github}](https://github.com/${data.github})
 
 
-I can also be reached by email at [${data.email}](mailto:${data.email})
-`;
+I can also be reached by email at [${data.email}](mailto:${data.email})`;
 
     return new Promise((resolve, reject) => {
         fs.writeFile(fileName, fileContent, err => {
@@ -129,7 +151,7 @@ function init() {
     inquirer
     .prompt(questions)
     //.then(answers => console.log(answers))
-    .then(answers => writeToFile('README.md', answers));
+    .then(answers => writeToFile('./generated/README.md', answers));
 }
 
 // Function call to initialize app

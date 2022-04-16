@@ -36,7 +36,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Please select a license',
-        choices: ['MIT', 'ISC', 'Apache License 2.0', 'GNU GPLv3', 'BSD', 'None']
+        choices: ['MIT', 'ISC', 'BSD', 'Apache License 2.0', 'GNU GPLv3', 'None']
     },
     {
         type: 'input',
@@ -62,11 +62,9 @@ const questions = [
 ];
 
 // this function writes the README file
-// badge links created with reference https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
-// professional readme template based on https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 function writeToFile(fileName, data) {
 
-    //build license string
+    //build license badge link string
     switch(data.license) {
         case 'MIT':
             data.license = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
@@ -84,6 +82,7 @@ function writeToFile(fileName, data) {
             data.license = '[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)';
             break;
         default:
+            data.license = '';
             break;
     }
 
@@ -127,7 +126,6 @@ ${data.tests}
 
 I am on GitHub at [https://github.com/${data.github}](https://github.com/${data.github})
 
-
 I can also be reached by email at [${data.email}](mailto:${data.email})`;
 
     return new Promise((resolve, reject) => {
@@ -136,6 +134,8 @@ I can also be reached by email at [${data.email}](mailto:${data.email})`;
                 reject(err);
                 return;
             }
+
+            console.log('Check the "generated" folder for your generated README.md file!')
     
             resolve({
                 ok: true,
@@ -150,7 +150,6 @@ function init() {
     console.log("Any information not entered will be left blank in the generated README.me file")
     inquirer
     .prompt(questions)
-    //.then(answers => console.log(answers))
     .then(answers => writeToFile('./generated/README.md', answers));
 }
 

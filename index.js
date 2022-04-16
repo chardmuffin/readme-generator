@@ -129,6 +129,12 @@ I am on GitHub: [https://github.com/${data.github}](https://github.com/${data.gi
 I can also be reached by email at [${data.email}](mailto:${data.email})`;
 
     return new Promise((resolve, reject) => {
+        //create the folder
+        fs.promises.mkdir('./generated', { recursive: true }, (err) => {
+            if (err) throw err;
+        })
+
+        //write the file
         fs.writeFile(fileName, fileContent, err => {
             if (err) {
                 reject(err);

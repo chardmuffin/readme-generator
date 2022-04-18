@@ -16,13 +16,13 @@ This program makes it easy to generate a README markdown file in proper format w
 
 1. Make sure you have downloaded and installed [node.js](https://nodejs.org/en/download/)
 2. Download a .zip of this repository, or clone the repository into a new directory using Git.
+3. Open a terminal window in the location of the extracted or cloned files and run ```node install``` to ensure the necessary packages will be included. You should see a new folder called "node_modules" appear in the directory.
 
 ## Usage
 
-1. Open a command-line shell from within the directory containing the project files you installed.
-2. Type ```node index``` into the command line and press Enter to run README-generator.
-3. Answer the prompts in the terminal window.
-4. Your generated README.md file will appear in the "generated" folder inside your directory.
+1. Type ```node index``` into your command line shell and press Enter to run README-generator.
+2. Answer the prompts in the terminal window.
+3. Your generated README.md file will appear in the "generated" folder inside your directory.
 
 Watch a brief video demonstrating usage:
 
